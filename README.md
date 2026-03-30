@@ -1,3 +1,4 @@
+HEAD
 # HMIS Scaffold (Django + Next.js + PostgreSQL)
 
 Production-oriented starter architecture for Hospital Management Information System.
@@ -76,3 +77,6 @@ All major tables inherit UUID PK + `created_at` + `updated_at`.
 2. `npm install`
 3. Set env: `NEXT_PUBLIC_API_BASE_URL=https://api.hmis.example.com/api`
 4. `npm run dev`
+=======
+# medical_hmis
+5ae3ffcea7e9ab4e53226b543dddbb66fe6e43a2
