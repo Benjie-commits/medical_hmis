@@ -13,7 +13,6 @@ from .serializers import LoginSerializer, MeSerializer
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
 
-   
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -146,3 +145,4 @@ class ResetPasswordAPIView(APIView):
         user.set_password(new_password)
         user.save()
         return Response({"message": "Password reset successful"}, status=status.HTTP_200_OK)
+
