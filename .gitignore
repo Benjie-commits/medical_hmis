@@ -1,0 +1,25 @@
+node_modules/
+.next/
+out/
+build/
+.env*.local
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (Sensitive data!)
+.env
+db.sqlite3
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# Media and Static folders
+# (Only ignore these if they are generated or contain user uploads)
+/media/
+/static/
