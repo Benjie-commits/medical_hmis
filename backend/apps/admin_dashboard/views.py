@@ -1,3 +1,22 @@
+from django.shortcuts import render
+
+def doctor_dashboard(request):
+    return render(request, 'doctor.html')
+def nurse_dashboard(request):
+    return render(request, 'nurse.html')
+def lab_dashboard(request):
+    return render(request, 'labtech.html')
+
+def manager_dashboard(request):
+    return render(request, 'manager.html')
+
+def pharmacist_dashboard(request):
+    return render(request, 'pharmacist.html')
+
+def receptionist_dashboard(request):
+    return render(request, 'receptionist.html')
+def patient_dashboard(request):
+    return render(request, 'patient.html')
 from django.db.models import Count
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
