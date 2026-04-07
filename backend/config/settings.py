@@ -77,7 +77,7 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB", "hmis_db"),
 
         "USER": os.getenv("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "admin123"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
 
         #"USER": os.getenv("POSTGRES_USER", "hmis_user"),
         #"PASSWORD": os.getenv("POSTGRES_PASSWORD", "hmis_password"),
