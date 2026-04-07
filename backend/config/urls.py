@@ -1,13 +1,8 @@
 from django.contrib import admin
-from django.urls import include, path
 from django.shortcuts import render
+from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from apps.accounts.views import MeAPIView
-
-
-# ======================
-# FRONTEND VIEWS
-# ======================
 
 def home(request):
     return render(request, "login.html")
@@ -33,13 +28,7 @@ def pharmacist_page(request):
 def receptionist_page(request):
     return render(request, "receptionist.html")
 
-
-# ======================
-# URL PATTERNS
-# ======================
-
 urlpatterns = [
-
     # ===== FRONTEND ROUTES =====
     path("", home),
     path("doctor/", doctor_page),
