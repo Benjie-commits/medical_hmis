@@ -100,16 +100,15 @@ class ForgotPasswordAPIView(APIView):
         email = request.data.get("email")
         if not email:
             return Response({"message": "Email is required"}, status=status.HTTP_400_BAD_REQUEST)
-        try:
-            from .models import User
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return Response({"message": "If that email exists, a reset link has been sent."}, status=status.HTTP_200_OK)
+        from .models import User
         from django.contrib.auth.tokens import default_token_generator
         from django.utils.http import urlsafe_base64_encode
         from django.utils.encoding import force_bytes
         from django.core.mail import send_mail
         from django.conf import settings
+        user = User.objects.filter(email=email).first()
+        if not user:
+            return Response({"message": "If that email exists, a reset link has been sent."}, status=status.HTTP_200_OK)
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         token = default_token_generator.make_token(user)
         reset_link = f"http://localhost:3000/reset-password?uid={uid}&token={token}"
@@ -121,7 +120,6 @@ class ForgotPasswordAPIView(APIView):
             fail_silently=False,
         )
         return Response({"message": "If that email exists, a reset link has been sent."}, status=status.HTTP_200_OK)
-
 
 class ResetPasswordAPIView(APIView):
     permission_classes = [AllowAny]
