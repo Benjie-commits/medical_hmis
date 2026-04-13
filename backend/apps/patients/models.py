@@ -4,7 +4,13 @@ from apps.common.models import TimeStampedUUIDModel
 
 
 class Patient(TimeStampedUUIDModel):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+
     mrn = models.CharField(max_length=40, unique=True)
     first_name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)
@@ -18,3 +24,6 @@ class Patient(TimeStampedUUIDModel):
     class Meta:
         db_table = "patients"
         indexes = [models.Index(fields=["mrn", "last_name"])]
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} ({self.mrn})"
