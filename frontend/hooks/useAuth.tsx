@@ -23,10 +23,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setSession(nextUser, access) {
         setUser(nextUser);
         setAccessToken(access);
+        localStorage.setItem("hmis_user", JSON.stringify(nextUser));
+        localStorage.setItem("hmis_token", access);
       },
       clearSession() {
         setUser(null);
         setAccessToken(null);
+        localStorage.removeItem("hmis_user");
+        localStorage.removeItem("hmis_token");
       }
     }),
     [accessToken, user]
