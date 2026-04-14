@@ -78,5 +78,92 @@ All major tables inherit UUID PK + `created_at` + `updated_at`.
 3. Set env: `NEXT_PUBLIC_API_BASE_URL=https://api.hmis.example.com/api`
 4. `npm run dev`
 =======
+
+##Quick Start (Recommended)
+ If you are cloning the project for the first time
+git clone https://github.com/Benjie-commits/medical_hmis.git
+cd medical_hmis
+ If you already cloned the project run;
+git pull origin main
+
+  ###Database Setup (REQUIRED)
+
+A database dump file is included:
+
+hospital_data.sql
+
+ >>IMPORTANT: Reset your database first
+-DROP DATABASE hmis_db;
+-CREATE DATABASE hmis_db;
+ -Import database
+psql -U postgres -d hmis_db -f hospital_data.sql
+❗ Do NOT skip this
+
+Importing into an existing database will cause:
+
+relation already exists
+duplicate key
+
+ Backend Setup
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py runserver
+
+Backend runs at:
+
+http://127.0.0.1:8000/
+ Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+Frontend runs at:
+
+http://localhost:3000/
+ Test Login Accounts (Dummy Data)
+
+Use these accounts to log in:
+
+ 1.Receptionist
+Username: receptionist1
+Password: 1234
+ 2.Doctor
+Username: doctor1
+Password: 1234
+
+ *Included Dummy Data*
+
+This project includes preloaded test data:
+
+ 3.Patients
+Alice Okello (P001)
+Brian Ocen (P002)
+Sarah Atim (P003)
+ 4.Lab Orders
+Malaria Test (Pending)
+Blood Test (Normal)
+ 5.Medication
+Paracetamol
+Amoxicillin
+ 6.Appointments
+Fever consultation (Today)
+General checkup (Tomorrow)
+ **Important
+This is NOT real patient data
+Safe for development only
+You can modify or delete it
+
+ ##Team Workflow
+When new changes are pushed:
+git pull origin main
+
+If database changes are included:
+
+DROP DATABASE hmis_db;
+CREATE DATABASE hmis_db;
+psql -U postgres -d hmis_db -f hospital_data.sql
+
 # medical_hmis
 5ae3ffcea7e9ab4e53226b543dddbb66fe6e43a2
