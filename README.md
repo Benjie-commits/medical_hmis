@@ -79,22 +79,23 @@ All major tables inherit UUID PK + `created_at` + `updated_at`.
 4. `npm run dev`
 =======
 
-Quick Start (Recommended)
+##Quick Start (Recommended)
  If you are cloning the project for the first time
 git clone https://github.com/Benjie-commits/medical_hmis.git
 cd medical_hmis
  If you already cloned the project run;
 git pull origin main
- Database Setup (REQUIRED)
+
+  ###Database Setup (REQUIRED)
 
 A database dump file is included:
 
 hospital_data.sql
 
  >>IMPORTANT: Reset your database first
-DROP DATABASE hmis_db;
-CREATE DATABASE hmis_db;
- Import database
+-DROP DATABASE hmis_db;
+-CREATE DATABASE hmis_db;
+ -Import database
 psql -U postgres -d hmis_db -f hospital_data.sql
 ❗ Do NOT skip this
 
@@ -125,36 +126,36 @@ http://localhost:3000/
 
 Use these accounts to log in:
 
- > Receptionist
+ 1.Receptionist
 Username: receptionist1
 Password: 1234
- > Doctor
+ 2.Doctor
 Username: doctor1
 Password: 1234
 
- Included Dummy Data
+ *Included Dummy Data*
 
 This project includes preloaded test data:
 
- >Patients
+ 3.Patients
 Alice Okello (P001)
 Brian Ocen (P002)
 Sarah Atim (P003)
- >Lab Orders
+ 4.Lab Orders
 Malaria Test (Pending)
 Blood Test (Normal)
- >Medication
+ 5.Medication
 Paracetamol
 Amoxicillin
- >Appointments
+ 6.Appointments
 Fever consultation (Today)
 General checkup (Tomorrow)
- Important
+ **Important
 This is NOT real patient data
 Safe for development only
 You can modify or delete it
 
- Team Workflow
+ ##Team Workflow
 When new changes are pushed:
 git pull origin main
 
